@@ -1,0 +1,41 @@
+# laravel setup
+# This is how i install and setup laravel
+
+# Install thise packages:
+sudo apt install composer curl php-mysql php-fpm php-mbstring php-tokenizer php-xml php-json php-common unzip php-curl php-gd php-zip php-bcmath
+
+# Creeate a path for global composer and npm
+cd $HOME
+nano ~/.bashrc
+
+# add the folowing lines at the bottum
+export PATH=$PATH:/home/simen/.config/composer/vendor/bin
+export PATH=$PATH:/home/simen/.npm-global/bin
+
+# find the newest version of node.js on https://github.com/nodesource/distributions
+# this is node.js v11.x
+curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# ...
+mkdir .npm-global
+npm config set prefix ~/.npm-global  
+
+# ..
+npm install -g nodejs
+
+# install Laravel
+composer global require laravel/installer
+
+# move to the folder where you want to create the project folder
+# create a laravel project
+
+composer create-project laravel/laravel projectName
+
+# open the new laravel project folder
+cd projectName
+
+# test the laravel project you have created
+php artisan serve
+
+# open your browser on the localhoste 127.0.0.1:8000
